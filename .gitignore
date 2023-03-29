@@ -3,7 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-*/target/**
+
 ### STS ###
 .apt_generated
 .classpath
@@ -18,4 +18,3 @@ target/
 *.iws
 *.iml
 *.ipr
-libraries
