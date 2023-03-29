@@ -1,5 +1,6 @@
 package com.petmuc.customer.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 import lombok.AccessLevel;
@@ -14,7 +15,7 @@ import java.util.regex.Pattern;
 @Embeddable
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class EmailAddress {
-
+    @Column(name = "email_address")
     private String value;
 
     private EmailAddress(String value) {

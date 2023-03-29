@@ -1,5 +1,6 @@
 package com.petmuc.customer.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import java.util.Objects;
 @Embeddable
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class LastName {
-
+    @Column(name = "last_name")
     private String value;
 
     private LastName(String value) {

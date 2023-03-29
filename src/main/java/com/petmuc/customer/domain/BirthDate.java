@@ -1,5 +1,6 @@
 package com.petmuc.customer.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -13,7 +14,7 @@ import java.util.Objects;
 @Embeddable
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class BirthDate {
-
+    @Column(name = "birth_date")
     private LocalDate value;
 
     private BirthDate(LocalDate value) {
@@ -22,7 +23,7 @@ public class BirthDate {
 
     public static BirthDate of(final LocalDate value) {
         Objects.requireNonNull(value, "Birth date should contain a value");
-        Assert.isTrue(value.isAfter(LocalDate.now()), "Birth date can not be in the future");
+        Assert.isTrue(!value.isAfter(LocalDate.now()), "Birth date can not be in the future");
 
         return new BirthDate(value);
     }

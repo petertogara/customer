@@ -1,5 +1,6 @@
 package com.petmuc.customer.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import java.util.Objects;
 @Embeddable   //to be able to persist it as a column in the aggregator
 @NoArgsConstructor(access = AccessLevel.PROTECTED)   // hibernate needs it
 public class FirstName {
-
+    @Column(name = "first_name")
     private String value;
 
     private FirstName(String value) {

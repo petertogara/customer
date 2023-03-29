@@ -16,7 +16,7 @@
     <description>Customer Service</description>
     <properties>
         <java.version>11</java.version>
-        <spring-cloud.version>2022.0.1</spring-cloud.version>
+        <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <maven.version>3.5.1</maven.version>
         <lombok.version>1.18.22</lombok.version>
