@@ -1,14 +1,13 @@
 package com.petmuc.customer.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 @Setter
@@ -18,9 +17,17 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 private Long id;
-    private String firstName;
-    private String lastName;
-    private LocalDate dateOfBirth;
-    private String email;
-    private String phone;
+    private FirstName firstName;
+    private LastName lastName;
+    private BirthDate birthDate;
+    private EmailAddress emailAddress;
+    private Phone phone;
+
+    public Customer(FirstName firstName, LastName lastName, BirthDate birthDate, EmailAddress emailAddress, Phone phone) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.emailAddress = emailAddress;
+        this.phone = phone;
+    }
 }
