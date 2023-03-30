@@ -18,6 +18,15 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
     generate-ddl: true
+  cloud:
+    function:
+      definition: customerSupplier
+    stream:
+      bindings:
+           customerSupplier-out-0:
+                       destination: customer-topic
+
+
 
 logging:
   pattern:

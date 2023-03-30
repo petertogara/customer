@@ -1,6 +1,7 @@
 package com.petmuc.customer.controller;
 
 import com.petmuc.customer.controller.dto.CustomerDto;
+import com.petmuc.customer.mapper.CustomerMapper;
 import com.petmuc.customer.domain.*;
 import com.petmuc.customer.service.CustomerService;
 import lombok.RequiredArgsConstructor;
@@ -22,14 +23,7 @@ public class CustomerController {
     @PostMapping
     public ResponseEntity<Customer> create(@RequestBody @Valid final CustomerDto dto) {
 
-        FirstName firstName = FirstName.of(dto.getFirstName());
-        LastName lastName = LastName.of(dto.getLastName());
-        BirthDate birthDate = BirthDate.of(dto.getBirthDate());
-        EmailAddress email = EmailAddress.of(dto.getEmailAddress());
-        Phone phone = Phone.of(dto.getPhone());
-
-        Customer customer = Customer.create(firstName, lastName, birthDate, email, phone);
-
+        Customer customer = CustomerMapper.mapToCustomer(dto);
         Customer createdCustomer = customerService.create(customer);
         return ResponseEntity.ok(createdCustomer);
     }

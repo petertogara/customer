@@ -16,10 +16,11 @@
     <description>Customer Service</description>
     <properties>
         <java.version>11</java.version>
-        <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+        <spring-cloud.version>2020.0.3</spring-cloud.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <maven.version>3.5.1</maven.version>
         <lombok.version>1.18.22</lombok.version>
+        <kafka.version>3.1.2</kafka.version>
     </properties>
     <dependencies>
         <dependency>
@@ -32,7 +33,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-stream</artifactId>
+            <artifactId>spring-cloud-starter-stream-kafka</artifactId>
         </dependency>
 
         <dependency>
@@ -52,13 +53,18 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-stream-kafka</artifactId>
+            <artifactId>spring-cloud-stream-binder-kafka</artifactId>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${mapstruct.version}</version>
 
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-stream</artifactId>
+            <version>${kafka.version}</version>
         </dependency>
     </dependencies>
     <dependencyManagement>

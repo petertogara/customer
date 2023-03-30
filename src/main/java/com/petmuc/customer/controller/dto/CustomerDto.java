@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @ToString
 @EqualsAndHashCode
 @NoArgsConstructor
+@AllArgsConstructor
 public class CustomerDto {
 
     @NotBlank(message = "First name cannot be blank")
