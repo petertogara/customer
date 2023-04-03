@@ -11,15 +11,18 @@ public interface CustomerMapper {
         BirthDate birthDate = BirthDate.of(dto.getBirthDate());
         EmailAddress email = EmailAddress.of(dto.getEmailAddress());
         Phone phone = Phone.of(dto.getPhone());
+        Ssn ssn = Ssn.create(dto.getSsn());
 
-        return Customer.create(firstName, lastName, birthDate, email, phone);
+        return Customer.create(firstName, lastName, birthDate, email, phone, ssn);
     }
+
 
     static CustomerDto mapToDto(final Customer customer) {
         return new CustomerDto(customer.getFirstName().getValue(),
                 customer.getLastName().getValue(),
                 customer.getBirthDate().getValue(),
                 customer.getEmailAddress().getValue(),
-                customer.getPhone().getValue());
+                customer.getPhone().getValue(),
+                customer.getSsn().getValue());
     }
 }
