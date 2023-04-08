@@ -22,7 +22,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer create(Customer customer) {
         Customer createdCustomer = customerRepository.save(customer);
-        var customerCreatedEvent  =  new CustomerEvent.CustomerCreatedEvent(customer.getId(), Instant.now(), CustomerMapper.mapToDto(customer));
+        var customerCreatedEvent = new CustomerEvent.CustomerCreatedEvent(customer.getId(), Instant.now(), CustomerMapper.mapToDto(customer));
         customerProducer.tryEmitNext(customerCreatedEvent);
         return createdCustomer;
     }
@@ -34,6 +34,8 @@ public class CustomerServiceImpl implements CustomerService {
                 new IllegalArgumentException(String.format("Could not find customer with id: %s  ", customerId)));
         customer.changeEmail(emailAddress);
         this.customerRepository.save(customer);
+        var emailChangedEvent = new CustomerEvent.EmailChanged(customerId, Instant.now(), emailAddress.getValue());
+        customerProducer.tryEmitNext(emailChangedEvent);
 
     }
 

@@ -27,4 +27,11 @@ public class CustomerController {
         Customer createdCustomer = customerService.create(customer);
         return ResponseEntity.ok(createdCustomer);
     }
+
+    @PostMapping("/changeEmail")
+    public ResponseEntity<?> updateEmail(@Valid final long customerId, @Valid final String emailAddress) {
+
+       customerService.changeEmail(customerId,EmailAddress.of(emailAddress));
+        return ResponseEntity.ok("Email successfully updated");
+    }
 }
